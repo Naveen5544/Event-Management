@@ -1,0 +1,174 @@
+.navbar {
+    /* overflow: hidden; Removed to allow dropdown to show if needed, though dropdown is absolute */
+    width: 1200px;
+    height: 80px;
+    margin: auto;
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+    /* Add some padding on sides */
+}
+
+.logo {
+    /* scale: 0.7; Removed scale, adjust height directly */
+    height: 60px;
+    /* Adjusted height */
+    filter: saturate(180%);
+    border-radius: 50px;
+    /* float: left; Removed float */
+}
+
+.menu {
+    /* float: left; Removed float */
+    height: auto;
+    width: auto;
+    flex-grow: 1;
+    /* Allow menu to take space */
+    display: flex;
+    justify-content: center;
+    /* Center the menu items */
+}
+
+ul {
+    /* float: left; Removed float */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 40px;
+    /* Reduced margin */
+    /* margin-top: 15px; Removed specific margin-top */
+    font-size: 16px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Nunito';
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+ul li a:hover {
+    color: #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 8px rgba(255, 215, 0, 0.1);
+    border: 1px solid #ffd700;
+    transform: translateY(-3px) scale(1.05);
+}
+
+.usericon {
+    scale: 1.5;
+    /* Adjusted scale slightly */
+    padding-right: 10px;
+    vertical-align: middle;
+    margin-top: 0;
+    /* Reset margin */
+}
+
+/* Removed faulty margin classes */
+.admin {
+    margin-left: 0;
+}
+
+.user {
+    margin-left: 0;
+}
+
+.dropdown {
+    /* overflow: hidden; */
+    position: relative;
+    /* For absolute positioning of content */
+    display: flex;
+    align-items: center;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    color: white;
+    padding: 6px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    font-family: 'Nunito';
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropbtn {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: #ffd700;
+    color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.dropdown:hover .usericon {
+    transform: scale(1.2);
+    color: #ffd700;
+}
+
+.usericon {
+    transition: all 0.4s ease;
+    font-size: 1.5rem;
+    margin-right: 8px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a;
+    min-width: 180px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    top: 100%;
+    right: 0;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 8px 0;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-content a {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Nunito';
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    color: #ffd700 !important;
+    background-color: rgba(255, 215, 0, 0.1);
+    padding-left: 25px;
+    /* Subtle sliding effect */
+    box-shadow: inset 4px 0 0 #ffd700;
+    /* Gold accent line */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

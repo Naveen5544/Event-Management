@@ -1,0 +1,75 @@
+.eventCard {
+    background-image: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin: 15px;
+    padding: 20px;
+    color: white;
+    max-width: 28%;
+    min-width: 250px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.eventCard::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.eventCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.eventCard:hover::after {
+    opacity: 1;
+}
+
+.cardButton {
+    margin: 2px;
+    padding: 10px;
+    font-size: 1.15vw;
+    border: 2px solid #dadada;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.cardButton:hover {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+    margin-top: 8%;
+    justify-content: center;
+}
+
+.userTable {
+    margin: 50px auto;
+    font-size: small;
+}
+
+.userTable td {
+    max-width: 115px;
+    word-wrap: break-word;
+}

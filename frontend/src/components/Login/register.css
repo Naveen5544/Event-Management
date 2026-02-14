@@ -1,0 +1,152 @@
+.registration-container {
+  width: 450px;
+  margin: 50px auto;
+  padding: 40px;
+  background: rgba(22, 22, 22, 0.9);
+  /* Premium dark background */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 114, 0, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  text-align: left;
+  /* Align content to the left */
+  animation: slideUpFade 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.registration-container:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #ff7200;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 114, 0, 0.3);
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.registration-container h1 {
+  text-align: center;
+  /* Centered heading */
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #ff7200 0%, #ffc107 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 36px;
+  font-weight: 950;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.registration-container h1:hover {
+  transform: scale(1.05);
+}
+
+.registration-container label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  margin-bottom: 8px;
+  padding-left: 5px;
+}
+
+.registration-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.registration-container input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ff7200;
+  box-shadow: 0 0 15px rgba(255, 114, 0, 0.3);
+  transform: translateX(5px);
+}
+
+.registration-container button {
+  min-height: 50px;
+  width: 100%;
+  background: linear-gradient(135deg, #ff7200 0%, #ff9e00 100%);
+  color: #000;
+  font-weight: 800;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(255, 114, 0, 0.3);
+}
+
+.registration-container button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 114, 0, 0.5);
+  background: linear-gradient(135deg, #ff9e00 0%, #ff7200 100%);
+}
+
+.registration-container .link {
+  margin-top: 25px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  text-align: center;
+  /* Keep the footer link centered */
+}
+
+.registration-container .link a {
+  color: #ff7200;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.registration-container .link a:hover {
+  text-shadow: 0 0 8px rgba(255, 114, 0, 0.5);
+}
+
+.register-error {
+  color: #ff4d4d;
+  margin-top: 10px;
+  font-weight: 500;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+
+/* Add any other  styling as needed  */

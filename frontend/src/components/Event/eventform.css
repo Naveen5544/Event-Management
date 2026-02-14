@@ -1,0 +1,194 @@
+.eventForm {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 40px;
+  background: rgba(22, 22, 22, 0.9);
+  /* Premium dark background */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 114, 0, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  animation: entrance 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  /* Align content to the left */
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+
+.eventForm:hover {
+  transform: translateY(-12px) scale(1.01);
+  border-color: #ff7200;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 114, 0, 0.25);
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.eventForm h1 {
+  text-align: center;
+  /* Centered title */
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #ff7200 0%, #ffc107 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 40px;
+  font-weight: 950;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.eventForm h1:hover {
+  transform: scale(1.05);
+}
+
+/* Make browser native date/time icons white */
+.eventForm input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.eventForm {
+  display: flex;
+  flex-direction: column;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+.eventForm label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+.eventForm input {
+  width: 100%;
+  padding: 12px 18px;
+  margin: 5px 0 20px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 114, 0, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.eventForm input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ff7200;
+  box-shadow: 0 0 15px rgba(255, 114, 0, 0.2);
+  transform: translateX(3px);
+}
+
+.eventForm .link {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  padding-top: 20px;
+  text-align: center;
+  /* Keep footer links centered */
+}
+
+.eventForm .link a {
+  text-decoration: none;
+  color: #ff7200;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: #ff7200;
+  margin-top: 5px;
+}
+
+.eventForm textarea {
+  width: 100%;
+  padding: 12px 18px;
+  margin: 8px 0 20px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 114, 0, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.eventForm textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ff7200;
+  box-shadow: 0 0 15px rgba(255, 114, 0, 0.2);
+  transform: translateX(3px);
+}
+
+.eventForm button {
+  min-height: 55px;
+  width: 100%;
+  background: linear-gradient(135deg, #ff7200 0%, #ffae42 100%);
+  color: #000;
+  font-weight: 800;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 35px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(255, 114, 0, 0.3);
+}
+
+.eventForm button:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(255, 114, 0, 0.5);
+  background: linear-gradient(135deg, #ffae42 0%, #ff7200 100%);
+}
+
+.icons a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.icons ion-icon {
+  color: #fff;
+  font-size: 30px;
+  padding-left: 14px;
+  padding-top: 5px;
+  transition: 0.3s ease;
+}
+
+.icons ion-icon:hover {
+  color: #ff7200;
+}
+
+.button:hover {
+  background: #fff;
+  color: #f4f2f0;
+}
