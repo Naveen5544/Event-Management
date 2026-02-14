@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://event-backend-7qo2.onrender.com/eventRoute";
+const API_URL = "http://localhost:5000/eventRoute";
 
 // Auth APIs
 export const registerUser = (userData) => {
