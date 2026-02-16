@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
 import UserListRow from "./UserListRow";
+import { getUserList } from "../../api";
 import "./UserList.css";
 
 function UserList() {
   const [arr, setArr] = useState([]);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/eventRoute/user-list")
+    getUserList(token)
       .then((res) => {
         if (res.status === 200) setArr(res.data);
         else Promise.reject();
       })
-      .catch((err) => alert(err));
-  }, []);
+      .catch((err) => {
+        console.error("API Error:", err);
+        alert(err.response?.data?.error || "Error fetching users");
+      });
+  }, [token]);
 
   const ListItems = () => {
     return arr.map((val) => {

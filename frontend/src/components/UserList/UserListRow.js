@@ -5,9 +5,13 @@ import Axios from "axios";
 function UserListRow({ obj }) {  // ✅ Destructure directly from props
     const { _id, username, fullName, email, phone } = obj; // Removed unused variables
 
+    const token = localStorage.getItem("token");
+
     const handleClick = () => {
         Axios.all([
-            Axios.delete(`http://localhost:5000/eventRoute/delete-user/${_id}`)
+            Axios.delete(`http://127.0.0.1:5000/eventRoute/delete-user/${_id}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            })
                 .then((res) => {
                     if (res.status === 200) {
                         alert("Record deleted successfully");
@@ -18,7 +22,7 @@ function UserListRow({ obj }) {  // ✅ Destructure directly from props
                 })
                 .catch((err) => alert(err)),
 
-            Axios.get("http://localhost:5000/eventRoute/event-list")
+            Axios.get("http://127.0.0.1:5000/eventRoute/event-list")
                 .then((eventResponse) => {
                     if (eventResponse.status === 200) {
                         const collectedEvents = eventResponse.data;
@@ -27,7 +31,9 @@ function UserListRow({ obj }) {  // ✅ Destructure directly from props
                                 (user) => user.username !== username
                             );
 
-                            Axios.put(`http://localhost:5000/eventRoute/update-event/${eventData._id}`, eventData)
+                            Axios.put(`http://127.0.0.1:5000/eventRoute/update-event/${eventData._id}`, eventData, {
+                                headers: { Authorization: `Bearer ${token}` }
+                            })
                                 .then((updateResponse) => {
                                     if (updateResponse.status === 200) {
                                         console.log("Event details updated");

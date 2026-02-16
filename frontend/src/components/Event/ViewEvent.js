@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Axios from "axios";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { getEventById } from "../../api";
 import "./Events.css";
 
 const ViewEvent = () => {
@@ -11,7 +11,7 @@ const ViewEvent = () => {
   const [event, setEvent] = useState(null);
 
   useEffect(() => {
-    Axios.get(`http://localhost:5000/eventRoute/get-event/${id}`)
+    getEventById(id)
       .then((res) => {
         if (res.status === 200) {
           setEvent(res.data);

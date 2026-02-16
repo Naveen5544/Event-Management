@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const API_URL = "https://event-backend-7qo2.onrender.com/eventRoute";
 
 // Auth APIs
@@ -16,8 +15,12 @@ export const createEvent = (eventData) => {
     return axios.post(`${API_URL}/create-event`, eventData);
 };
 
-export const getEvents = () => {
-    return axios.get(`${API_URL}/event-list`);
+export const getEvents = (token) => {
+    return axios.get(`${API_URL}/event-list`, {
+        headers: {
+            Authorization: token ? `Bearer ${token}` : ""
+        }
+    });
 };
 
 export const getEventById = (id) => {
@@ -41,22 +44,32 @@ export const cancelBooking = (eventId) => {
 };
 
 // User-related APIs
-export const getUserById = (userId) => {
-    return axios.get(`${API_URL}/get-user/${userId}`);
+export const getUserById = (userId, token) => {
+    return axios.get(`${API_URL}/get-user/${userId}`, {
+        headers: { Authorization: token ? `Bearer ${token}` : "" }
+    });
 };
 
-export const getUserBookedEvents = () => {
-    return axios.get(`${API_URL}/user-booked-events`);
+export const getUserBookedEvents = (token) => {
+    return axios.get(`${API_URL}/user-booked-events`, {
+        headers: { Authorization: token ? `Bearer ${token}` : "" }
+    });
 };
 
-export const updateUser = (userId, userData) => {
-    return axios.put(`${API_URL}/update-user/${userId}`, userData);
+export const updateUser = (userId, userData, token) => {
+    return axios.put(`${API_URL}/update-user/${userId}`, userData, {
+        headers: { Authorization: token ? `Bearer ${token}` : "" }
+    });
 };
 
-export const deleteUser = (userId) => {
-    return axios.delete(`${API_URL}/delete-user/${userId}`);
+export const deleteUser = (userId, token) => {
+    return axios.delete(`${API_URL}/delete-user/${userId}`, {
+        headers: { Authorization: token ? `Bearer ${token}` : "" }
+    });
 };
 
-export const getUserList = () => {
-    return axios.get(`${API_URL}/user-list`);
+export const getUserList = (token) => {
+    return axios.get(`${API_URL}/user-list`, {
+        headers: { Authorization: token ? `Bearer ${token}` : "" }
+    });
 }

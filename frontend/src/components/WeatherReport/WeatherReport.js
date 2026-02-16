@@ -60,7 +60,7 @@ export default function WeatherReport() {
 
   const getWeather = async () => {
     try {
-      const res = await Axios.get("http://localhost:5000/weatherRoute/get-weather", {
+      const res = await Axios.get("http://127.0.0.1:5000/weatherRoute/get-weather", {
         params: { lat, lon },
       });
       setWeather(res.data);

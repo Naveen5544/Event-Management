@@ -184,26 +184,38 @@ eventRoute.delete("/delete-user/:id", [authMiddleware.verifyToken, authMiddlewar
 
 // ------------------------- Event Routes -------------------------
 
-// ✅ Get Events with Pagination (Publicly accessible, but booking requires login)
+// ✅ Get Events with Pagination (Filtered to show only upcoming or recent events)
 eventRoute.get("/event-list", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = 10;
     const skip = (page - 1) * limit;
 
     try {
-        const events = await eventSchema.find()
+        // Only show events that are not older than 2 days from now
+        const twoDaysAgo = new Date();
+        twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+
+        const events = await eventSchema.find({ date: { $gte: twoDaysAgo } })
             .skip(skip)
             .limit(limit)
-            .select("name date startTime endTime place club description slots createdBy"); // registeredUsers should be protected
+            .select("name date startTime endTime place club description slots createdBy");
         res.json(events);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
 
-// ✅ Create Event (Authenticated Users)
+// ✅ Create Event (Authenticated Users with Date Validation)
 eventRoute.post("/create-event", authMiddleware.verifyToken, async (req, res) => {
     try {
+        const { date } = req.body;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (new Date(date) < today) {
+            return res.status(400).json({ error: "Cannot create an event in the past" });
+        }
+
         console.log("Create Event Request Body:", req.body); // DEBUG
         console.log("User creating event:", req.user.id); // DEBUG
 

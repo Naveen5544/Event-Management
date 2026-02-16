@@ -46,13 +46,17 @@ const EventRegistrationForm = (props) => {
     props.slotsValue,
   ]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const todayStr = new Date().toISOString().split('T')[0];
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Additional validation to ensure the date is not in the past
+    if (new Date(formData.date) < new Date(todayStr)) {
+      alert("Event date cannot be in the past.");
+      return;
+    }
+
     // Use the onSubmit prop passed from the parent component (CreateEvent or UpdateEvent)
     props.onSubmit(formData);
   };
@@ -103,6 +107,7 @@ const EventRegistrationForm = (props) => {
             name="date"
             value={formData.date}
             onChange={handleChange}
+            min={todayStr}
             required
           />
         </div>

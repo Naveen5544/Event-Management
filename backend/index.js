@@ -14,7 +14,8 @@ initReminderTask();
 
 // Database Connection with Improved Error Handling
 mongoose.set("strictQuery", true);
-mongoose.connect("mongodb://localhost:27017/Management").then(() => console.log("✅ Connected to DB"))
+const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/Management";
+mongoose.connect(mongoURI).then(() => console.log("✅ Connected to DB"))
     .catch((err) => console.error("❌ Database connection error:", err));
 
 app.use(bodyParser.json());

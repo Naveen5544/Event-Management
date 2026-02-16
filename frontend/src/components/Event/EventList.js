@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
 import EventCard from "./EventCard";
+import { getEvents } from "../../api";
 
 const EventList = () => {
   const token = localStorage.getItem("token");
@@ -9,12 +9,7 @@ const EventList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    //Axios.get("http://localhost:5000/eventRoute/event-list")
-     Axios.get("http://localhost:5000/eventRoute/event-list", {
-      headers: {
-        Authorization: `Bearer ${token}`, // Add token to headers
-      },
-    })
+    getEvents(token)
       .then((res) => {
         if (res.status === 200 && Array.isArray(res.data)) {
           setEvents(res.data);
@@ -23,12 +18,11 @@ const EventList = () => {
         }
       })
       .catch((err) => {
-        console.error("Axios Error:", err.response || err.message || err);
+        console.error("API Error:", err.response || err.message || err);
         setError("Error fetching events");
-        alert("Error fetching events. See console.");
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [token]);
 
   if (loading) return <p style={{ textAlign: "center" }}>Loading events...</p>;
   if (error) return <p style={{ textAlign: "center", color: "red" }}>{error}</p>;
