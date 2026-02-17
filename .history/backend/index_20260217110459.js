@@ -22,11 +22,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS Configuration (Add frontend URL for security)
-app.use(cors({
-    origin: "*",
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}));
 
 // Routes
 app.use('/eventRoute', eventRoute);

@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS Configuration (Add frontend URL for security)
 app.use(cors({
-    origin: "*",
+    origin: 'http://localhost:3000', // Update this to your frontend URL if different
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
